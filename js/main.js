@@ -125,7 +125,7 @@ const addMarkersToMap = (restaurants = self.restaurants) => {
 const resetRestaurants = (restaurants) => {
   // Remove all restaurants
   self.restaurants = [];
-  const ul = document.getElementById('restaurants-list');
+  const ul = document.querySelector('.restaurants-list');
 
   ul.innerHTML = '';
 
@@ -141,7 +141,7 @@ const resetRestaurants = (restaurants) => {
  * Create all restaurants HTML and add them to the webpage.
  */
 const fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  const ul = document.getElementById('restaurants-list');
+  const ul = document.querySelector('.restaurants-list');
 
   restaurants.forEach((restaurant) => {
     ul.append(createRestaurantHTML(restaurant));

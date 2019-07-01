@@ -169,7 +169,7 @@ const fetchRestaurantFromURL = (callback) => {
  * Add restaurant name to the breadcrumb navigation menu
  */
 const fillBreadcrumb = (restaurant = self.restaurant) => {
-  const breadcrumb = document.getElementById('breadcrumb');
+  const breadcrumb = document.querySelector('.breadcrumb');
   const li = document.createElement('li');
 
   li.innerHTML = restaurant.name;

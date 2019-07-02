@@ -11,26 +11,43 @@ var newMap;
  * Create review HTML and add it to the webpage.
  */
 const createReviewHTML = (review) => {
-  const li = document.createElement('li');
-  const name = document.createElement('p');
+  const name = document.createElement('h3');
 
   name.innerHTML = review.name;
-  li.appendChild(name);
+  name.classList.add('review-name');
 
   const date = document.createElement('p');
 
   date.innerHTML = review.date;
-  li.appendChild(date);
+  date.classList.add('review-date');
+
+  const nameDate = document.createElement('div');
+
+  nameDate.classList.add('review-name-date');
+  nameDate.appendChild(name);
+  nameDate.appendChild(date);
 
   const rating = document.createElement('p');
 
   rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+  rating.classList.add('review-rating');
 
   const comments = document.createElement('p');
 
   comments.innerHTML = review.comments;
-  li.appendChild(comments);
+  comments.classList.add('review-comments');
+
+  const ratingComments = document.createElement('div');
+
+  ratingComments.classList.add('review-rating-comments');
+  ratingComments.appendChild(rating);
+  ratingComments.appendChild(comments);
+
+  const li = document.createElement('li');
+
+  li.classList.add('review-container');
+  li.appendChild(nameDate);
+  li.appendChild(ratingComments);
 
   return li;
 };
@@ -39,7 +56,7 @@ const createReviewHTML = (review) => {
  * Create restaurant operating hours HTML table and add it to the webpage.
  */
 const fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
-  const hours = document.getElementById('restaurant-hours');
+  const hours = document.querySelector('.restaurant-hours');
 
   for (const key in operatingHours) {
     if ({}.hasOwnProperty.call(operatingHours, key)) {
@@ -63,7 +80,7 @@ const fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hour
  * Create all reviews HTML and add them to the webpage.
  */
 const fillReviewsHTML = (reviews = self.restaurant.reviews) => {
-  const container = document.getElementById('reviews-container');
+  const container = document.querySelector('.reviews-container');
   const title = document.createElement('h2');
 
   title.innerHTML = 'Reviews';
@@ -77,7 +94,7 @@ const fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 
     return;
   }
-  const ul = document.getElementById('reviews-list');
+  const ul = document.querySelector('.reviews-list');
 
   reviews.forEach((review) => {
     ul.appendChild(createReviewHTML(review));
@@ -89,22 +106,15 @@ const fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  * Create restaurant HTML and add it to the webpage
  */
 const fillRestaurantHTML = (restaurant = self.restaurant) => {
-  const name = document.getElementById('restaurant-name');
+  const name = document.querySelector('.restaurant-name');
+  const address = document.querySelector('.restaurant-address');
+  const cuisine = document.querySelector('.restaurant-cuisine');
+  const image = document.querySelector('.restaurant-img');
 
   name.innerHTML = restaurant.name;
-
-  const address = document.getElementById('restaurant-address');
-
   address.innerHTML = restaurant.address;
-
-  const image = document.getElementById('restaurant-img');
-
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-
-  const cuisine = document.getElementById('restaurant-cuisine');
-
   cuisine.innerHTML = restaurant.cuisine_type;
+  image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   // Fill operating hours
   if (restaurant.operating_hours) {

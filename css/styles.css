@@ -336,13 +336,13 @@ nav h1 a {
   padding: 10px 25px 0;
 }
 
-.review-name h3 {
+.review-name {
   color: #fff;
   font-size: 1.3em;
   font-weight: 400;
 }
 
-.review-date p {
+.review-date {
   color: #d8d2d2;
 }
 
@@ -361,6 +361,20 @@ nav h1 a {
 }
 
 /* ====================== Media Queries ====================== */
+@media (max-height: 40em) {
+  nav {
+    height: 4em; /* 80px; */
+  }
+
+  nav h1 a {
+    font-size: 0.8em;
+  }
+  
+  .inside .maincontent {
+    margin-top: 6.7em;
+  }
+}
+
 @media (min-width: 30em) {
   body {
     font-size: 12pt;

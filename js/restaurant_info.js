@@ -114,7 +114,9 @@ const fillRestaurantHTML = (restaurant = self.restaurant) => {
   name.innerHTML = restaurant.name;
   address.innerHTML = restaurant.address;
   cuisine.innerHTML = restaurant.cuisine_type;
+
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute('alt', `Restaurant named ${restaurant.name} that serves ${restaurant.cuisine_type} cuisine`);
 
   // Fill operating hours
   if (restaurant.operating_hours) {

@@ -11,15 +11,17 @@ var newMap;
  * Create review HTML and add it to the webpage.
  */
 const createReviewHTML = (review) => {
-  const name = document.createElement('h3');
+  const name = document.createElement('h4');
 
   name.innerHTML = review.name;
   name.classList.add('review-name');
+  name.setAttribute('aria-label', `Review by ${review.name}`);
 
   const date = document.createElement('p');
 
   date.innerHTML = review.date;
   date.classList.add('review-date');
+  date.setAttribute('aria-label', `Reviewed on ${review.date}`);
 
   const nameDate = document.createElement('div');
 
@@ -46,6 +48,7 @@ const createReviewHTML = (review) => {
   const li = document.createElement('li');
 
   li.classList.add('review-container');
+  li.tabIndex = 0;
   li.appendChild(nameDate);
   li.appendChild(ratingComments);
 
@@ -61,9 +64,11 @@ const fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hour
   for (const key in operatingHours) {
     if ({}.hasOwnProperty.call(operatingHours, key)) {
       const row = document.createElement('tr');
-      const day = document.createElement('td');
+      const day = document.createElement('th');
 
       day.innerHTML = key;
+      day.scope = 'row';
+      day.classList.add('th-day');
       row.appendChild(day);
 
       const time = document.createElement('td');
@@ -81,10 +86,13 @@ const fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hour
  */
 const fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.querySelector('.reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
 
   title.innerHTML = 'Reviews';
+  title.id = 'reviews-heading';
+
   container.appendChild(title);
+  container.setAttribute('aria-labelledby', title.id);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
@@ -108,7 +116,7 @@ const fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 const fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.querySelector('.restaurant-name');
   const address = document.querySelector('.restaurant-address');
-  const cuisine = document.querySelector('.restaurant-cuisine');
+  const cuisine = document.querySelector('#restaurant-cuisine');
   const image = document.querySelector('.restaurant-img');
 
   name.innerHTML = restaurant.name;

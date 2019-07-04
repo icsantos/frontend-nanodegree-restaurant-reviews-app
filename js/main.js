@@ -89,7 +89,7 @@ const createRestaurantHTML = (restaurant) => {
 
   address.innerHTML = restaurant.address;
 
-  const foodPlace = document.createElement('div');
+  const foodPlace = document.createElement('section');
 
   foodPlace.classList.add('food-place');
   foodPlace.append(image);
@@ -101,8 +101,9 @@ const createRestaurantHTML = (restaurant) => {
 
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
+  more.setAttribute('aria-label', `View details about ${restaurant.name}, a restaurant in ${restaurant.neighborhood} serving ${restaurant.cuisine_type} cuisine`);
 
-  const foodLink = document.createElement('div');
+  const foodLink = document.createElement('section');
 
   foodLink.classList.add('food-link');
   foodLink.append(more);

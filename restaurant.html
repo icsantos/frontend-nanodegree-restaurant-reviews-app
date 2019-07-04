@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Restaurant Info</title>
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap">
   <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <!-- Main CSS file -->
@@ -39,16 +40,28 @@
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
-    <section class="restaurant-container">
-      <h1 class="restaurant-name"></h1>
+    <section class="restaurant-container" tabindex="0" aria-labelledby="restaurant-name">
+      <h2 class="restaurant-name" id="restaurant-name"></h2>
       <img class="restaurant-img">
-      <p class="restaurant-cuisine"></p>
-      <p class="restaurant-address"></p>
-      <table class="restaurant-hours"></table>
+      <p class="restaurant-cuisine" tabindex="0">
+        <span id="restaurant-cuisine"></span>
+        <span class="visible-hidden"> Cuisine</span>
+      </p>
+      <p class="restaurant-address" tabindex="0"></p>
+      <table tabindex="0">
+        <caption class="visible-hidden">Restaurant hours</caption>
+        <thead class="visible-hidden">
+          <tr>
+            <th scope="col">Day of week</th>
+            <th scope="col">Hours open</th>
+          </tr> 
+        </thead>
+        <tbody class="restaurant-hours"></tbody>
+      </table>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
-    <section class="reviews-container">
+    <section class="reviews-container" tabindex="0">
       <ul class="reviews-list"></ul>
     </section>
     <!-- End reviews -->

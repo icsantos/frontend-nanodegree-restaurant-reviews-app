@@ -82,6 +82,27 @@ section {
   text-transform: uppercase;
 }
 
+/* ====================== Hide elements ====================== */
+/*
+  Source: https://a11y-101.com/development/skip-link
+*/
+.visible-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.visible-hidden:focus {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  position: absolute;
+  width: auto;
+}
+
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -289,6 +310,11 @@ nav h1 a {
   width: 100%;
 }
 
+.restaurant-hours .th-day {
+  font-weight: normal;
+  text-align: left;
+}
+
 .restaurant-hours td {
   color: #666;
 }
@@ -304,7 +330,7 @@ nav h1 a {
   margin-top: 0;
 }
 
-.reviews-container h2 {
+.reviews-container h3 {
   color: #f58500;
   font-size: 2em;
   font-weight: 300;

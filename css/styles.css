@@ -311,12 +311,14 @@ nav h1 a {
 }
 
 .restaurant-hours .th-day {
+  font-size: 0.8em;
   font-weight: normal;
   text-align: left;
 }
 
 .restaurant-hours td {
   color: #666;
+  font-size: 0.8em;
 }
 
 .restaurant-container,
@@ -356,6 +358,7 @@ nav h1 a {
 }
 
 .review-container p {
+  font-size: 0.8em;
   margin: 0 0 10px;
 }
 

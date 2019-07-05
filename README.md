@@ -8,6 +8,7 @@ Udacity Front-End Web Developer Nanodegree Project 7
 - [Specifications](#Specifications)
 - [Submission Requirements](#Submission-Requirements)
 - [Getting Started](#Getting-Started)
+- [Resources](#Resources)
 - [Contributing](#Contributing)
 
 ## Project Overview
@@ -81,6 +82,10 @@ From inside the local copy of the repository, start up an HTTP client server to 
 - Python 3.x: `python -m http.server 8000`
 
 With the server running, visit the site at <http://localhost:8000>, and look around for a bit to see what the current experience looks like.
+
+## Resources
+
+[Color Contrast Analyzer](https://dequeuniversity.com/rules/axe/3.2/color-contrast)
 
 ## Contributing
 

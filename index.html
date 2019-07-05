@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -28,9 +28,11 @@
     <section class="restaurant-container">
       <div class="filter-options">
         <h2>Filter Results</h2>
+        <label for="neighborhoods-select" class="visible-hidden">Filter by neighborhood</label>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
+        <label for="cuisines-select" class="visible-hidden">Filter by cuisine</label>
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>

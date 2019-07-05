@@ -42,13 +42,11 @@ self.addEventListener('fetch', (event) => {
 
       return fetch(event.request);
     })
-    .then((response) => {
+    .then(async (response) => {
       // Dynamically add files to the cache as they are requested
-      return caches.open(staticCacheName).then((cache) => {
-        cache.put(event.request.url, response.clone());
-
-        return response;
-      });
+      const cache = await caches.open(staticCacheName);
+      cache.put(event.request.url, response.clone());
+      return response;
     })
     .catch((error) => {
       console.log(error);

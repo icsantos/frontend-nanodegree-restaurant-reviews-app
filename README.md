@@ -86,7 +86,8 @@ With the server running, visit the site at <http://localhost:8000>, and look aro
 ## Resources
 
 [Color Contrast Analyzer](https://dequeuniversity.com/rules/axe/3.2/color-contrast)  
-[Introduction to Service Worker](https://developers.google.com/web/ilt/pwa/introduction-to-service-worker)
+[Introduction to Service Worker](https://developers.google.com/web/ilt/pwa/introduction-to-service-worker)  
+[Lab: Caching Files with Service Worker](https://developers.google.com/web/ilt/pwa/lab-caching-files-with-service-worker)
 
 ## Contributing
 

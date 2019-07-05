@@ -85,7 +85,8 @@ With the server running, visit the site at <http://localhost:8000>, and look aro
 
 ## Resources
 
-[Color Contrast Analyzer](https://dequeuniversity.com/rules/axe/3.2/color-contrast)
+[Color Contrast Analyzer](https://dequeuniversity.com/rules/axe/3.2/color-contrast)  
+[Introduction to Service Worker](https://developers.google.com/web/ilt/pwa/introduction-to-service-worker)
 
 ## Contributing
 

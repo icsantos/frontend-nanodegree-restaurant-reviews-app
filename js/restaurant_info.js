@@ -123,7 +123,13 @@ const fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
   cuisine.innerHTML = restaurant.cuisine_type;
 
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  const imgSrcRg = DBHelper.imageUrlForRestaurant(restaurant);
+  const imgSrcMd = DBHelper.imageUrlForRestaurant(restaurant, '_md');
+  const imgSrcLg = DBHelper.imageUrlForRestaurant(restaurant, '_lg');
+
+  image.setAttribute('srcset', `${imgSrcLg} 800w, ${imgSrcMd} 480w, ${imgSrcRg} 270w`);
+  image.setAttribute('sizes', '(min-width: 30em) 300px, (min-width: 60em) 500px, 100vw');
+  image.src = imgSrcLg;
   image.setAttribute('alt', `Restaurant named ${restaurant.name} that serves ${restaurant.cuisine_type} cuisine`);
 
   // Fill operating hours

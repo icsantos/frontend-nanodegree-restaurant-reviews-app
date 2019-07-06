@@ -190,6 +190,16 @@ const fetchRestaurantFromURL = (callback) => {
 };
 
 /**
+ * Add Aria label to the map
+ * @param {*} restaurant 
+ */
+const labelMap = (restaurant = self.restaurant) => {
+  const map = document.querySelector('#map');
+
+  map.setAttribute('aria-label', `Map showing location of ${restaurant.name}`);
+}
+
+/**
  * Add restaurant name to the breadcrumb navigation menu
  */
 const fillBreadcrumb = (restaurant = self.restaurant) => {
@@ -224,6 +234,7 @@ const initMap = () => {
           }).addTo(newMap);
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
+      labelMap();
     }
   });
 };

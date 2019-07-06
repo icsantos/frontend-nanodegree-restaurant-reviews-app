@@ -139,9 +139,13 @@ nav h1 a {
 
 /* Add a slash symbol (/) before/behind each list item */
 .breadcrumb li+li:before {
-  padding: 0 0.4em;
   color: black;
-  content: "/\00a0";
+  display: inline-block;
+  margin: 0 0.5em;
+  transform: rotate(15deg);
+  border-right: 0.1em solid currentColor;
+  height: 0.8em;
+  content: '';
 }
 
 /* Add a color to all links inside the list */

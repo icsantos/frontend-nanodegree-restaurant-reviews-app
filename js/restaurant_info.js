@@ -117,19 +117,17 @@ const fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.querySelector('.restaurant-name');
   const address = document.querySelector('.restaurant-address');
   const cuisine = document.querySelector('#restaurant-cuisine');
-  const image = document.querySelector('.restaurant-img');
 
   name.innerHTML = restaurant.name;
   address.innerHTML = restaurant.address;
   cuisine.innerHTML = restaurant.cuisine_type;
 
-  const imgSrcRg = DBHelper.imageUrlForRestaurant(restaurant);
-  const imgSrcMd = DBHelper.imageUrlForRestaurant(restaurant, '_md');
-  const imgSrcLg = DBHelper.imageUrlForRestaurant(restaurant, '_lg');
+  const image = document.querySelector('.restaurant-img');
+  const imgSrc = DBHelper.imageUrlForRestaurant(restaurant);
 
-  image.setAttribute('srcset', `${imgSrcLg} 800w, ${imgSrcMd} 480w, ${imgSrcRg} 270w`);
+  image.setAttribute('srcset', `${imgSrc.large} 800w, ${imgSrc.medium} 480w, ${imgSrc.small} 270w`);
   image.setAttribute('sizes', '(min-width: 30em) 300px, (min-width: 60em) 500px, 100vw');
-  image.src = imgSrcLg;
+  image.src = imgSrc.large;
   image.setAttribute('alt', `Restaurant named ${restaurant.name} that serves ${restaurant.cuisine_type} cuisine`);
 
   // Fill operating hours

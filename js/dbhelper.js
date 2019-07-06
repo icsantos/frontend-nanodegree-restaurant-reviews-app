@@ -173,8 +173,14 @@ class DBHelper {
   /**
    * Restaurant image URL.
    */
-  static imageUrlForRestaurant(restaurant, size = '') {
-    return `/img/${restaurant.id}${size}.jpg`;
+  static imageUrlForRestaurant(restaurant) {
+    const photos = {};
+
+    Object.keys(restaurant.photos).forEach(function(key) {
+      photos[key] = `/img/${restaurant.photos[key]}`;
+    });
+
+    return photos;
   }
 
   /**

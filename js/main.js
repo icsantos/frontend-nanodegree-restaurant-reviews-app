@@ -68,15 +68,24 @@ const fetchCuisines = () => {
 };
 
 /**
+ * Create restaurant image element
+ */
+const createImageHTML = (restaurant) => {
+  const image = document.createElement('img');
+
+  image.setAttribute('data-src', DBHelper.imageUrlForRestaurant(restaurant).small);
+  image.setAttribute('loading', 'lazy');
+  image.setAttribute('alt', `Restaurant in ${restaurant.neighborhood} named ${restaurant.name}`);
+  image.classList.add('restaurant-img', 'lazyload');
+
+  return image;
+};
+
+/**
  * Create restaurant HTML.
  */
 const createRestaurantHTML = (restaurant) => {
-  const image = document.createElement('img');
-
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant).small;
-  image.setAttribute('alt', `Restaurant in ${restaurant.neighborhood} named ${restaurant.name}`);
-
+  const image = createImageHTML(restaurant);
   const name = document.createElement('h2');
 
   name.innerHTML = restaurant.name;

@@ -49,7 +49,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
   console.log('Fetch event for ', event.request.url);
   event.respondWith(
-    caches.match(event.request)
+    caches.match(event.request, {ignoreSearch: true})
     .then((response) => {
       // Intercept requests for those files from the network
       // Respond with the files from the cache
